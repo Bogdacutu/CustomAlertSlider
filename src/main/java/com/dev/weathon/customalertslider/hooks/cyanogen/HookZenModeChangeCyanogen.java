@@ -111,6 +111,7 @@ public class HookZenModeChangeCyanogen implements IXposedHookLoadPackage {
 
 
                     newNotificationMode = (int)param.args[0];
+                    sendSliderChangeIntent(AndroidAppHelper.currentApplication(), newNotificationMode, false);
                     settings.edit().putInt("currentPosition", newNotificationMode).apply();
 
                     Set<String> emptySet = Collections.emptySet();
